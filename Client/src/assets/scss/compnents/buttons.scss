@@ -1,0 +1,40 @@
+@import "../utils/variables";
+.red-btn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    height: 36px;
+    border-radius: 0 !important;
+    background: $red-btn !important;
+    color: $white !important;
+    line-height: 1.54;
+    letter-spacing: -0.31px;
+    font-size: 13px;
+    &:focus {
+        outline: none;
+    }
+}
+
+.google-btn {
+    &[data-width="100"] {
+        width: 100%;
+    }
+
+    font-family: "Work Sans", sans-serif;
+    box-shadow: $btn-box-shadow;
+    margin: 23px 0 18px !important;
+    height: 36px;
+
+    img {
+        width: 24px;
+        height: 24px;
+        margin-right: 11px;
+    }
+}
+
+.transparent-btn {
+    border: none;
+    background: transparent;
+    &:focus {
+        outline: none;
+    }
+}

@@ -1,0 +1,10 @@
+psql -U postgres -W -  connect to db
+\c database - connect to database
+\d tablename  - show table info
+
+---- DB queries ----
+
+DELETE FROM table_name WHERE condition; -  delete item with condition
+INSERT INTO horses(value1,  ) VALUES ($1) - insert row,rows to table
+CREATE TABLE horses (name varchar,dateOfBirth date,sex varchar,pregnant bool,dueDate varchar); - create table with fields
+SELECT * FROM horses WHERE name = $1 - select items

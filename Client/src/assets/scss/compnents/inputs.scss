@@ -1,0 +1,131 @@
+@import "../utils/mixines";
+@import "../utils/variables";
+
+.out-input.single-email {
+  .mat-form-field-wrapper {
+    background: white !important;
+    border-radius: 5px !important;
+  }
+  input {
+    font-size: 13px;
+    line-height: 1.54;
+    letter-spacing: -0.31px;
+  }
+}
+
+.out-input {
+  margin-bottom: 10px;
+  position: relative;
+  @include flex-column-center(baseline);
+  font-family: "Work Sans", sans-serif;
+  width: 100%;
+  & > mat-label {
+    color: $dark-gray;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  mat-form-field {
+    min-height: 46.05px;
+    width: 100%;
+    height: fit-content;
+    span.error {
+      position: relative;
+      bottom: -18px;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #f44336;
+      letter-spacing: -0.7px;
+    }
+  }
+
+  .mat-form-field-infix {
+    border-top: 0;
+  }
+
+  .mat-form-field {
+    line-height: 0.225;
+  }
+
+  .mat-error {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    line-height: 11px;
+    margin-top: 4px;
+  }
+
+  .mat-form-field-appearance-outline {
+    .mat-form-field-wrapper {
+      margin-top: 3px;
+      padding: 0;
+    }
+    .mat-form-field-infix {
+      padding: 0.9em 0 0.6em 0;
+    }
+    .mat-form-field-subscript-wrapper {
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mat-form-field-suffix {
+      top: -0.05em;
+      color: $grey;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+  }
+  .mat-form-field-outline-end,
+  .mat-form-field-outline-start {
+    border-width: 1px !important;
+  }
+
+  input {
+    color: $grey;
+    font-family: "Work Sans", sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.36px;
+    color: $grey;
+  }
+}
+
+mat-form-field.search,
+mat-form-field.picker {
+  .mat-form-field-flex > .mat-form-field-infix {
+    padding: 0.4em 0px !important;
+  }
+  .mat-form-field-label-wrapper {
+    top: -1.5em;
+  }
+
+  .mat-icon {
+    color: $grey;
+  }
+
+  &.mat-form-field-should-float .mat-form-field-label {
+    top: 2.44375em !important;
+  }
+}
+mat-form-field.picker {
+  .mat-icon-button {
+    width: 1.9em !important;
+    height: 1.9em !important;
+    .mat-button-wrapper {
+      position: relative;
+      top: -8.5px;
+      .material-icons-outlined {
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<h1 mat-dialog-title *ngIf="!getEditHorse">Add new horse</h1>
+<h1 mat-dialog-title *ngIf="getEditHorse">Edit horse</h1>
+<form [formGroup]="formGroupHorse">
+  <div class="out-input">
+    <mat-label>name</mat-label>
+    <mat-form-field appearance="outline" class="name"
+      [ngClass]="{'invalid':submitted && formControl.name.errors && formControl.name.touched}">
+      <input matInput formControlName="name" autocomplete="off">
+      <mat-error>
+        <ng-container *ngIf="submitted && formControl.name.errors?.required">
+          name is required
+        </ng-container>
+        <ng-container *ngIf="submitted && formControl.name.errors?.pattern">
+          Invalid name address
+        </ng-container>
+        <ng-container *ngIf="submitted && formControl.name.errors?.description">
+          {{formControl.name.errors.description}}
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline"
+    [ngClass]="{'invalid':submitted && formControl.dateOfBirth.errors && formControl.dateOfBirth.touched}">
+    <mat-label>Date Of Birth</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    <mat-error *ngIf="formControl.dateOfBirth.errors?.required">Date Of Birth
+      Required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose an sex</mat-label>
+    <mat-select formControlName="sex">
+      <mat-option *ngFor="let item of sexOptions" [value]="item.value">{{item.title}}</mat-option>
+    </mat-select>
+    <mat-error>
+      <ng-container *ngIf="submitted && formControl.sex.errors?.required">
+        sex is required
+      </ng-container>
+
+      <ng-container *ngIf="submitted && formControl.sex.errors?.description">
+        {{formControl.sex.errors.description}}
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" *ngIf="getIsFemale" @fadeDownItem>
+    <mat-label>Choose an pregnant</mat-label>
+    <mat-select formControlName="pregnant">
+      <mat-option *ngFor="let item of pregnantOptions" [value]="item.value">{{item.title}}</mat-option>
+    </mat-select>
+    <mat-error>
+      <ng-container *ngIf="submitted && formControl.pregnant.errors?.required">
+        pregnant is required
+      </ng-container>
+
+      <ng-container *ngIf="submitted && formControl.pregnant.errors?.description">
+        {{formControl.pregnant.errors.description}}
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline" *ngIf="formControl.pregnant.value" @fadeDownItem>
+    <mat-label>Due Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    <mat-error *ngIf="formControl.dueDate?.errors?.required">Due Date
+      Required
+    </mat-error>
+  </mat-form-field>
+
+</form>
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogClose()">No Thanks</button>
+  <button mat-button class="red-btn" *ngIf="!getEditHorse" (click)="create()">Create</button>
+  <button mat-button class="red-btn" *ngIf="getEditHorse" (click)="edit()">Save</button>
+
+</div>

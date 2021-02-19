@@ -1,0 +1,30 @@
+@import "src/assets/scss/utils/variables";
+@import "src/assets/scss/utils/mixines";
+
+.wrapper {
+  margin: 20px;
+  & > .actions {
+    // margin-bottom: 25px;
+    @include flex-row-content-align(center, space-between);
+
+    & > button {
+      margin: 5px 50px 25px 0;
+    }
+  }
+}
+
+::ng-deep .hide-arrow .mat-sort-header-arrow {
+  opacity: 0 !important;
+}
+.horse-warning {
+  @include flex-row-content-align;
+  .heart {
+    color: red;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  .warning {
+    margin: 0 5px;
+    color: yellow;
+  }
+}

@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Confirm your actions</h1>
+
+<p>Are you sure you want to delete {{data.name}} horse?</p>
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogClose()">No Thanks</button>
+    <button mat-button class="red-btn" (click)="remove()">Yes</button>
+</div>

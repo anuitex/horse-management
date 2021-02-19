@@ -1,0 +1,31 @@
+@import "src/assets/scss/utils/mixines";
+
+h1 {
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin: 10px 3vw;
+}
+
+.mat-dialog-actions {
+  @include flex-row-content-align;
+
+  & > button {
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: 0 20px;
+  }
+}
+mat-form-field {
+  width: 100%;
+}
+
+.mat-slide-toggle {
+  margin-top: 10px;
+}
+

@@ -1,0 +1,38 @@
+@import "../../../../assets/scss/utils/variables";
+@import "../../../../assets/scss/utils/mixines";
+
+.header {
+  height: $header-height;
+  background: $white;
+  box-shadow: 5px 0px 5px 0 rgba(151, 167, 182, 0.38);
+  position: fixed;
+  z-index: 9;
+  width: calc(100% - #{$sidenav-width} - #{$space-between-navs});
+  margin-left: calc(#{$sidenav-width} + #{$space-between-navs});
+}
+
+.sidenav {
+  background: $white;
+  color: $grey;
+  top: 0 !important;
+  width: $sidenav-width;
+  box-shadow: 0 6px 5px 0 rgba(151, 167, 182, 0.38);
+  .logo {
+    margin: 20px auto 20px 23px;
+    width:  150px;
+    & > img {
+      cursor: pointer;
+    }
+  }
+  .mat-expansion-panel-header {
+    height: 40px;
+  }
+
+  .mat-expansion-panel {
+    background-image: linear-gradient(#ebeff194, #ffff0000, #ebeff15e);
+  }
+
+  mat-nav-list {
+    margin-top: 70px !important;
+  }
+}

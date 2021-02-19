@@ -1,0 +1,70 @@
+<div class="wrapper">
+  <div class="actions">
+    <button mat-button class="red-btn" (click)="openDialogHorse()">Add horse</button>
+    <!-- <mat-form-field class="search" appearance="outline">
+      <mat-label>Search</mat-label>
+      <mat-icon matSuffix>search</mat-icon>
+      <input matInput type="search" [(ngModel)]="searchInputValue" class="search-input"
+        (keyup)="searchInput($event.target.value)">
+    </mat-form-field> -->
+  </div>
+  <div class="table-wrapper" data-aos="fade-left">
+
+    <table mat-table [dataSource]="dataSource" class="custom">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> name </th>
+        <td mat-cell *matCellDef="let data"> {{data.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="heartsRate">
+        <th mat-header-cell *matHeaderCellDef>heart Rate </th>
+        <td mat-cell *matCellDef="let data ">
+          <div class="horse-warning">
+            <span (click)="getNotActive(data) && getHorsesHeartRate(data.id)" class="material-icons heart">
+              favorite_border
+            </span> {{data.heartsRate}}
+            <span class="material-icons warning" *ngIf="data.isWarning">
+              report_problem
+            </span>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef> date Of Birth </th>
+        <td mat-cell *matCellDef="let data "> {{data.dateOfBirth | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sex">
+        <th mat-header-cell *matHeaderCellDef> sex </th>
+        <td mat-cell *matCellDef="let data"> {{data.sex | sex}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="pregnant">
+        <th mat-header-cell *matHeaderCellDef> pregnant </th>
+        <td mat-cell *matCellDef="let data"> {{getValueColumnsForMale(data).pregnant}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef> dueDate </th>
+        <td mat-cell *matCellDef="let data"> {{getValueColumnsForMale(data).dueDate !== "-" | date }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let data">
+          <div>
+            <mat-icon (click)="openDialogHorse(data)">edit</mat-icon>
+            <mat-icon (click)="deleteHorse(data)">delete_forever</mat-icon>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator #paginator [length]="totalItems" [pageSizeOptions]="pageSizeOptions" (page)="search()">
+  </mat-paginator>
+</div>
+
+<!-- <input type="text" [(ngModel)]="dataSource.data[0].heartRate" (change)="show()"> -->

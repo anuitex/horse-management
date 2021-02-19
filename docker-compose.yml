@@ -1,0 +1,22 @@
+version: "3"
+services:
+  server:
+    build: ./server
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    container_name: horsemanagement-server
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    container_name: horsemanagement-db
+    environment:
+      POSTGRES_PASSWORD: admin
+  horsemanagement:
+    image: horsemanagement-client
+    ports:
+      - "4200:4200"
+    build: ./client
+    container_name: horsemanagement-client
