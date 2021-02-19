@@ -1,1 +1,1 @@
-# start__nodejs_react_typescript
+# run docker-compose up 
